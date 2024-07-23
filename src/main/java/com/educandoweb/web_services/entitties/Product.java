@@ -1,5 +1,6 @@
 package com.educandoweb.web_services.entitties;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -87,6 +88,7 @@ public class Product implements Serializable {
         return categories;
     }
 
+    @JsonIgnore
     public Set<Order> getOrders() {
         Set<Order> set = new HashSet<>();
         for (OrderItem x : items) {
