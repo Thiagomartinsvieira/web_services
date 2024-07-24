@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserRepository repository;
 
@@ -17,12 +18,16 @@ public class UserService {
         return repository.findAll();
     }
 
-    public User findById(Long id){
-         Optional<User> obj = repository.findById(id);
-         return obj.get();
+    public User findById(Long id) {
+        Optional<User> obj = repository.findById(id);
+        return obj.get();
     }
 
     public User insert(User obj) {
         return repository.save(obj);
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }
